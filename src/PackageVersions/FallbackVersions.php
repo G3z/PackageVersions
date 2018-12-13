@@ -47,7 +47,7 @@ final class FallbackVersions
     private static function getComposerLockPath() : string
     {
         // bold assumption, but there's not here to fix everyone's problems.
-        $checkedPaths = [__DIR__ . '/../../../../../composer.lock', __DIR__ . '/../../composer.lock'];
+        $checkedPaths = [__DIR__ . '/../../../../../composer.lock', __DIR__ . '/../../composer.lock', dirname(\Composer\Factory::getComposerFile()).'/composer.lock'];
 
         foreach ($checkedPaths as $path) {
             if (file_exists($path)) {
